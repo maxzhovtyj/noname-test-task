@@ -1,6 +1,6 @@
 import classes from './main.module.css'
 import {Route, Routes} from "react-router-dom";
-import PrivateRoute from "../../PrivateRoute";
+import PrivateRoute from "../../utils/PrivateRoute";
 import HomePageComponent from "./homePage/homePage.component";
 import SignInComponent from "./signIn/signIn.component";
 import SignUpComponent from "./signUp/signUp.component";

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useNavigate} from "react-router-dom"
 import {Button, FormGroup, TextField} from "@mui/material";
-import {signUp} from "../../../AuthService";
+import {signUp} from "../../../services/AuthService";
 
 import classes from "./signUp.module.css";
 

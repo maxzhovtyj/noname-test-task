@@ -1,8 +1,8 @@
 import React, {createContext, useContext, useEffect, useState} from 'react';
-import {getAuth, onAuthStateChanged, signOut} from "firebase/auth"
-import {app} from "./base"
+import {getAuth, onAuthStateChanged} from "firebase/auth"
+import {app} from "../firebase"
 
-export const AuthContext = createContext()
+export const AuthContext = createContext({})
 
 export const useAuthContext = () => {
     return useContext(AuthContext)

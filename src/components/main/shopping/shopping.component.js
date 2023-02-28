@@ -1,8 +1,19 @@
-import React from 'react';
+import {useSnackbarContext} from "../../../context/SnackbarContext";
+import {Button} from "@mui/material";
 
-function ShoppingComponent(props) {
+function ShoppingComponent() {
+    const {setMessage, handleClick} = useSnackbarContext()
+
+    const handleSnackbar = () => {
+        setMessage("Test")
+        handleClick()
+    }
+
     return (
-        <div>Shopping page</div>
+        <div>
+            <h2>Shopping page</h2>
+            <Button onClick={handleSnackbar} variant={"outlined"}>Snackbar</Button>
+        </div>
     );
 }
 

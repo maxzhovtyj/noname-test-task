@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {useNavigate} from "react-router-dom";
-import {signIn, signInGoogle} from "../../../AuthService";
-import {Button, FormGroup, Input, TextField} from "@mui/material";
+import {signIn, signInGoogle} from "../../../services/AuthService";
+import {Button, FormGroup, TextField} from "@mui/material";
 
 import classes from "./signIn.module.css"
 import GoogleButton from "react-google-button";
@@ -46,7 +46,7 @@ function SignInComponent() {
                            value={signInForm.password} fullWidth
                            onChange={handleSignInForm}/>
 
-            <Button onClick={handleSignIn} variant={"outlined"} className={classes.signInBtn}>Sign In</Button>
+            <Button onClick={handleSignIn} variant={"outlined"}>Sign In</Button>
             </FormGroup>
 
             <span className={classes.signInOr}>or</span>

@@ -4,7 +4,7 @@ import {
     GoogleAuthProvider,
     signInWithPopup, createUserWithEmailAndPassword
 } from "firebase/auth";
-import {getAppAuth} from "./Auth";
+import {getAppAuth} from "../context/AuthContext";
 
 export async function userSignOut() {
     const auth = getAppAuth();
