@@ -1,18 +1,27 @@
-import {useSnackbarContext} from "../../../context/SnackbarContext";
-import {Button} from "@mui/material";
+import {useEffect, useState} from "react";
+import {NavLink} from "react-router-dom";
+
+import classes from "./shopping.module.css"
 
 function ShoppingComponent() {
-    const {setMessage, handleClick} = useSnackbarContext()
+    const [categories, setCategories] = useState([])
 
-    const handleSnackbar = () => {
-        setMessage("Test")
-        handleClick()
-    }
+    useEffect(() => {
+        fetch('https://dummyjson.com/products/categories')
+            .then(res => res.json())
+            .then(setCategories);
+    }, [])
 
     return (
-        <div>
-            <h2>Shopping page</h2>
-            <Button onClick={handleSnackbar} variant={"outlined"}>Snackbar</Button>
+        <div className={classes.shoppingPageContainer}>
+            <aside className={classes.sidebar}>
+                <ul>
+                    {categories.map(item => <li key={item}><NavLink to={`/shopping/${item}`}>{item}</NavLink></li>)}
+                </ul>
+            </aside>
+            <div>
+                <h2>Products</h2>
+            </div>
         </div>
     );
 }

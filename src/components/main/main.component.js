@@ -17,7 +17,7 @@ function MainComponent() {
                 <Route path={"/sign-in"} element={<SignInComponent/>}/>
                 <Route path={"/sign-up"} element={<SignUpComponent/>}/>
                 <Route path={"/product/:id"} element={<ProductComponent/>}/>
-                <Route path={"/shopping"} element={<ShoppingComponent/>}/>
+                <Route path={"/shopping/:category"} element={<ShoppingComponent/>}/>
 
                 <Route element={<PrivateRoute/>}>
                     <Route path={"/profile"} element={<ProfileComponent/>}/>
