@@ -3,6 +3,8 @@
 # IDE file
 .idea
 
+/.env
+
 # dependencies
 /node_modules
 /.pnp
@@ -24,4 +26,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-!/.env
