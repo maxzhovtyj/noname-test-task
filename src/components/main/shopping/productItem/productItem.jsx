@@ -1,10 +1,8 @@
 import React from 'react';
 
-function ProductItem(props) {
+function ProductItem({product}) {
     return (
-        <div>
-            img
-        </div>
+        <div>Product item, {product}</div>
     );
 }
 
