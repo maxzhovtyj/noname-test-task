@@ -12,7 +12,7 @@ export async function userSignOut() {
     try {
         await signOut(auth)
     } catch (e) {
-        return e
+        return e.message
     }
 }
 
@@ -22,7 +22,7 @@ export async function signIn(email, password) {
     try {
         return await signInWithEmailAndPassword(auth, email, password)
     } catch (e) {
-        return e
+        return e.message
     }
 }
 
@@ -33,7 +33,7 @@ export async function signInGoogle() {
     try {
         return await signInWithPopup(auth, provider)
     } catch (e) {
-        return e
+        return e.message
     }
 }
 
@@ -43,7 +43,7 @@ export async function signUp(email, password) {
     try {
         return await createUserWithEmailAndPassword(auth, email, password)
     } catch (e) {
-        return e
+        return e.message
     }
 }
 
