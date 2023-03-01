@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 
 import {useDispatch, useSelector} from "react-redux";
-import Sidebar from "./categories/sidebar";
+import Sidebar from "./sidebar/sidebar";
 import {fetchAllCategories} from "../../../redux/categories/categoriesFetch";
 import {fetchAllProducts} from "../../../redux/products/productsFetch";
 import ProductsList from "./products/productsList";

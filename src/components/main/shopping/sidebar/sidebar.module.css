@@ -31,3 +31,9 @@
     color: #1976D2;
     text-decoration: underline !important;
 }
+
+@media all and (max-width: 720px) {
+    .sidebar {
+        display: none;
+    }
+}

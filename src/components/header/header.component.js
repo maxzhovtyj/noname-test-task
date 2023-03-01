@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useAuthContext} from "../../context/AuthContext";
 import {userSignOut} from "../../services/AuthService";
 
@@ -19,12 +19,22 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
 
 import classes from "./header.module.css"
+import CategoriesBurgerMenu from "../../UI/categoriesBurgerMenu";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchAllCategories} from "../../redux/categories/categoriesFetch";
 
 function HeaderComponent() {
     const {currentUser} = useAuthContext()
     const [anchorEl, setAnchorEl] = useState(null);
 
+    const dispatch = useDispatch()
+    const categories = useSelector(state => state.categories.categories)
+
     const navigate = useNavigate()
+
+    useEffect(() => {
+        dispatch(fetchAllCategories())
+    }, [dispatch])
 
     const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
@@ -54,8 +64,11 @@ function HeaderComponent() {
     }
 
     return (
-        <AppBar position="static">
+        <AppBar position="sticky">
             <Toolbar className={classes.headerContainer}>
+                <div className={classes.burgerMenuWrapper}>
+                    <CategoriesBurgerMenu categories={categories}/>
+                </div>
                 <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
                     <NavLink to={"/"}>NONAME DIGITAL</NavLink>
                 </Typography>

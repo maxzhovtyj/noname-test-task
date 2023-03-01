@@ -4,3 +4,14 @@
     margin: 0 auto;
     padding: 1rem;
 }
+
+.burgerMenuWrapper {
+    display: none;
+    margin-right: 15px;
+}
+
+@media all and (max-width: 720px) {
+    .burgerMenuWrapper {
+        display: block;
+    }
+}
