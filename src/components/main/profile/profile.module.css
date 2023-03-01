@@ -1,0 +1,15 @@
+.emailLabel {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.5rem;
+}
+
+.emailValue {
+    margin-bottom: 1rem;
+}
+
+.signOutBtn {
+    margin-top: 1rem;
+}
