@@ -10,7 +10,7 @@ export async function userSignOut() {
     const auth = getAppAuth();
 
     try {
-        await signOut(auth)
+        return await signOut(auth)
     } catch (e) {
         return e.message
     }
