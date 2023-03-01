@@ -1,8 +1,10 @@
 import React from 'react';
 
 function ProductItem({product}) {
+    const {title} = product
+
     return (
-        <div>Product item, {product}</div>
+        <div>{title}</div>
     );
 }
 

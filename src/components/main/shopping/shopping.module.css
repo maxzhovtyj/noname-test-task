@@ -10,6 +10,9 @@
 }
 
 .sidebar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -23,4 +26,10 @@
 
 .sidebar ul li {
     text-align: center;
+    transition: .3s ease-in-out;
+}
+
+.sidebar ul li a:hover {
+    transition: .3s ease-in-out;
+    color: tomato;
 }
