@@ -1,7 +1,9 @@
 .categoriesList {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 1rem;
+    grid-auto-rows: auto;
+    justify-items: center;
 }
 
 .categoryItem {
