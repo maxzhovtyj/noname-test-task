@@ -14,15 +14,21 @@ const cartSlice = createSlice({
             state.products = JSON.parse(localStorage.getItem("cart")) || []
         },
         addToCart(state, action) {
-            state.products.push(action.payload)
-
             let cart = JSON.parse(localStorage.getItem("cart")) || []
             cart.push(action.payload)
 
             localStorage.setItem("cart", JSON.stringify(cart))
+
+            state.products = cart
         },
         removeFromCart(state, action) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || []
 
+            cart = cart.filter(item => item.id !== action.payload)
+
+            localStorage.setItem("cart", JSON.stringify(cart))
+
+            state.products = cart
         },
     },
 })

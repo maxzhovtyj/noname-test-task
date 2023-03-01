@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 
 import {useDispatch, useSelector} from "react-redux";
@@ -11,11 +11,17 @@ import classes from "./shopping.module.css"
 import {addToCart} from "../../../redux/cart/cartSlice";
 import {useAuthContext} from "../../../context/AuthContext";
 import {useSnackbarContext} from "../../../context/SnackbarContext";
+import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
+
+import {popularASC, popularDESC, priceASC, priceDESC, sortProducts} from "../../../redux/products/productsSlice";
 
 function ShoppingComponent() {
+    const {category} = useParams()
+    const [sortOption, setSortOption] = useState("")
+
     const {currentUser} = useAuthContext();
     const {setMessage, handleClick, setLink} = useSnackbarContext()
-    const {category} = useParams()
+
     const dispatch = useDispatch()
 
     const categories = useSelector(state => state.categories.categories)
@@ -28,6 +34,11 @@ function ShoppingComponent() {
         dispatch(fetchAllCategories())
         dispatch(fetchAllProducts({category}))
     }, [category, dispatch])
+
+    const handleChangeSortOption = (event) => {
+        setSortOption(event.target.value);
+        dispatch(sortProducts(event.target.value))
+    };
 
     const handleBuyProduct = (item) => {
         if (!currentUser) {
@@ -49,7 +60,24 @@ function ShoppingComponent() {
             <aside className={classes.sidebar}>
                 <SidebarCategoriesList status={categoriesStatus} categories={categories}/>
             </aside>
-            <div>
+            <div className={classes.products}>
+                <FormControl fullWidth>
+                    <InputLabel id="sort-label">Sort</InputLabel>
+                    <Select
+                        labelId="sort-label"
+                        id="select-sort-option"
+                        label="Sort"
+                        value={sortOption}
+                        defaultValue={""}
+                        onChange={handleChangeSortOption}
+                    >
+                        <MenuItem value={""}>None</MenuItem>
+                        <MenuItem value={priceDESC}>Expensive - cheap</MenuItem>
+                        <MenuItem value={priceASC}>Cheap - expensive</MenuItem>
+                        <MenuItem value={popularASC}>Popular - unpopular</MenuItem>
+                        <MenuItem value={popularDESC}>Unpopular - popular</MenuItem>
+                    </Select>
+                </FormControl>
                 <ProductsList products={products} status={productsStatus} handleBuy={handleBuyProduct}/>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {getCartProducts} from "../../../redux/cart/cartSlice";
+import {getCartProducts, removeFromCart} from "../../../redux/cart/cartSlice";
 import CartList from "./cartList";
 
 function CartComponent() {
@@ -11,10 +11,14 @@ function CartComponent() {
         dispatch(getCartProducts())
     }, [dispatch])
 
+    const handleRemoveFromCart = (id) => {
+        dispatch(removeFromCart(id))
+    }
+
     return (
         <div>
             <h2>Cart</h2>
-            <CartList products={cartProducts}/>
+            <CartList products={cartProducts} removeFromCart={handleRemoveFromCart}/>
         </div>
     );
 }

@@ -1,0 +1,13 @@
+.cartList {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 260px);
+    grid-auto-rows: auto;
+    grid-gap: 1rem;
+}
+
+.emptyCart {
+    margin-top: 2rem;
+    font-size: 2rem;
+    font-weight: 400;
+}

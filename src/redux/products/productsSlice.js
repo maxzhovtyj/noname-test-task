@@ -1,6 +1,11 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {fetchAllProducts, fetchProduct} from "./productsFetch";
 
+export const priceASC = "priceASC"
+export const priceDESC = "priceDESC"
+export const popularASC = "popularASC"
+export const popularDESC = "popularDESC"
+
 const initialState = {
     products: [],
     product: {},
@@ -11,7 +16,28 @@ const initialState = {
 const productsSlice = createSlice({
     name: "products",
     initialState,
-    reducers: {},
+    reducers: {
+        sortProducts(state, action) {
+            console.log(action.payload)
+            switch (action.payload) {
+                case priceASC:
+                    state.products.sort((a,b) => a.price > b.price ? 1 : -1)
+                    break
+                case priceDESC:
+                    state.products.sort((a,b) => a.price > b.price ? -1 : 1)
+                    break
+                case popularASC:
+                    state.products.sort((a,b) => a.rating > b.rating ? -1 : 1)
+                    break
+                case popularDESC:
+                    state.products.sort((a,b) => a.rating > b.rating ? 1 : -1)
+                    break
+
+                default:
+                    break
+            }
+        },
+    },
     extraReducers(builder) {
         builder.addCase(fetchAllProducts.pending, (state) => {
             state.status = "pending"
@@ -40,5 +66,7 @@ const productsSlice = createSlice({
         })
     }
 })
+
+export const {sortProducts} = productsSlice.actions
 
 export default productsSlice.reducer

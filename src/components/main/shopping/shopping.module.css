@@ -34,3 +34,9 @@
     transition: .3s ease-in-out;
     color: tomato;
 }
+
+.products {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}

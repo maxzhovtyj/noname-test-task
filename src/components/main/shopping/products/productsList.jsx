@@ -1,6 +1,6 @@
 import React from 'react';
 import CircularIndeterminate from "../../../../UI/circularProgress";
-import ProductItem from "./productItem";
+import ProductItem from "../../../../UI/productItem/productItem";
 
 import classes from "./products.module.css"
 
