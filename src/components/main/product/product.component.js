@@ -50,9 +50,9 @@ function ProductComponent() {
                 <img src={product.thumbnail} alt="product" className={classes.productImg}/>
                 <div className={classes.productInfo}>
                     <h2 className={classes.productTitle}>{product.title}</h2>
-                    <p>Brand - {product.brand}</p>
-                    <p>Category - {product.category}</p>
-                    <p>{product.price} $</p>
+                    <p>Brand - <strong>{product.brand}</strong></p>
+                    <p>Category - <strong>{product.category}</strong></p>
+                    <p><strong>{product.price} $</strong></p>
                     <ProductRating value={product.rating}/>
                     <Button onClick={handleBuyProduct} variant={"outlined"}>Buy now</Button>
                 </div>

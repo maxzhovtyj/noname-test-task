@@ -7,12 +7,13 @@ function CategoryItem({category}) {
     const navigate = useNavigate()
 
     const handleNavigateToCategory = () => {
-      navigate(`/shopping/${category}`)
+      navigate(`/shopping/${category.title}`)
     }
 
     return (
         <div className={classes.categoryItem} onClick={handleNavigateToCategory}>
-            <p>{category}</p>
+            <img src={category.thumbnail} alt="category-img"/>
+            <p>{category.title}</p>
         </div>
     );
 }

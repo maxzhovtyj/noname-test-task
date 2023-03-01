@@ -16,7 +16,7 @@ function CategoriesList({categories, status}) {
 
     return (
         <div className={classes.categoriesList}>
-            {categories.map(item => <CategoryItem key={item} category={item}/>)}
+            {categories.map(item => <CategoryItem key={item.title} category={item}/>)}
         </div>
     );
 }

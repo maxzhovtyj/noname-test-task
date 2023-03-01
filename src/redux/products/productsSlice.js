@@ -18,7 +18,6 @@ const productsSlice = createSlice({
     initialState,
     reducers: {
         sortProducts(state, action) {
-            console.log(action.payload)
             switch (action.payload) {
                 case priceASC:
                     state.products.sort((a,b) => a.price > b.price ? 1 : -1)

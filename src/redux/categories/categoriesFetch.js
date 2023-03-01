@@ -1,10 +1,10 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import axios from "axios";
+
+import categories from "../../categories.json"
 
 export const fetchAllCategories = createAsyncThunk('categories/fetchCategories', async () => {
     try {
-        const response = await axios.get('https://dummyjson.com/products/categories')
-        return response.data
+        return JSON.parse(JSON.stringify(categories))
     } catch (e) {
         return e.message
     }

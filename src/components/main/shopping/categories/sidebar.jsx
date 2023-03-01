@@ -16,12 +16,12 @@ function Sidebar({status, categories, currentCategory}) {
     return (
         <aside className={classes.sidebar}>
             <ul className={classes.sidebarCategoriesList}>
-                {categories.map(item =>
-                    <li key={item} className={classes.sidebarCategoryItem}>
+                {categories.map((item, index) =>
+                    <li key={index} className={classes.sidebarCategoryItem}>
                         <NavLink
-                            to={`/shopping/${item}`}
-                            className={(currentCategory === item) ? classes.activeCategory : ""}
-                        >{item}</NavLink>
+                            to={`/shopping/${item.title}`}
+                            className={(currentCategory === item.title) ? classes.activeCategory : ""}
+                        >{item.title}</NavLink>
                     </li>
                 )}
             </ul>
