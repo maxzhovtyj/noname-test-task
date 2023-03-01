@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 
 import {useDispatch, useSelector} from "react-redux";
-import SidebarCategoriesList from "./categories/sidebarCategoriesList";
+import Sidebar from "./categories/sidebar";
 import {fetchAllCategories} from "../../../redux/categories/categoriesFetch";
 import {fetchAllProducts} from "../../../redux/products/productsFetch";
 import ProductsList from "./products/productsList";
@@ -57,9 +57,7 @@ function ShoppingComponent() {
 
     return (
         <div className={classes.shoppingPageContainer}>
-            <aside className={classes.sidebar}>
-                <SidebarCategoriesList status={categoriesStatus} categories={categories}/>
-            </aside>
+            <Sidebar status={categoriesStatus} categories={categories} currentCategory={category}/>
             <div className={classes.products}>
                 <FormControl fullWidth>
                     <InputLabel id="sort-label">Sort</InputLabel>

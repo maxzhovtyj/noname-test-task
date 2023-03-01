@@ -1,0 +1,33 @@
+.sidebar {
+    box-shadow: 0.05rem 0.1rem 0.3rem -0.03rem rgba(0, 0, 0, 0.45);
+    border-radius: .5rem;
+    padding: 0 2rem;
+}
+
+.sidebarCategoriesList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+    padding: 2rem 0 !important;
+}
+
+.sidebarCategoryItem a {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.sidebarCategoryItem {
+    text-align: start;
+}
+
+.sidebarCategoryItem a:hover {
+    transition: .2s ease-in-out;
+    color: #1976D2;
+}
+
+.activeCategory {
+    color: #1976D2;
+    text-decoration: underline !important;
+}
