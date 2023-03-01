@@ -7,7 +7,7 @@ import {NavLink} from "react-router-dom";
 
 export default function SimpleSnackbar({handleClose, open, message, linkMessage, linkPath}) {
     const LinkButton = () => (
-        <Button color={"secondary"}><NavLink to={linkPath} style={{color: "inherit"}}>{linkMessage}</NavLink></Button>
+        <Button color={"primary"}><NavLink to={linkPath} style={{color: "inherit"}}>{linkMessage}</NavLink></Button>
     );
 
     const action = (

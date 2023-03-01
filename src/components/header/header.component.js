@@ -1,10 +1,24 @@
-import classes from "./header.module.css"
-import {Link as NavLink, useNavigate} from "react-router-dom";
-import {useAuthContext} from "../../context/AuthContext";
 import {useState} from "react";
-import {AppBar, Button, IconButton, Menu, MenuItem, Toolbar, Typography} from "@mui/material";
-import {AccountCircle} from "@mui/icons-material";
+import {useAuthContext} from "../../context/AuthContext";
 import {userSignOut} from "../../services/AuthService";
+
+import {Link as NavLink, useNavigate} from "react-router-dom";
+import {
+    AppBar,
+    Button,
+    IconButton,
+    ListItemIcon,
+    ListItemText,
+    Menu,
+    MenuItem,
+    Toolbar,
+    Typography
+} from "@mui/material";
+import {AccountCircle} from "@mui/icons-material";
+import LogoutIcon from '@mui/icons-material/Logout';
+import PersonIcon from '@mui/icons-material/Person';
+
+import classes from "./header.module.css"
 
 function HeaderComponent() {
     const {currentUser} = useAuthContext()
@@ -72,8 +86,19 @@ function HeaderComponent() {
                             open={Boolean(anchorEl)}
                             onClose={handleClose}
                         >
-                            <MenuItem onClick={handleNavigateToProfile}>Profile</MenuItem>
-                            <MenuItem onClick={handleSignOut}>Sign Out</MenuItem>
+                            <MenuItem onClick={handleNavigateToProfile}>
+                                <ListItemIcon>
+                                    <PersonIcon fontSize="small"/>
+                                </ListItemIcon>
+                                <ListItemText>Profile</ListItemText>
+                            </MenuItem>
+
+                            <MenuItem onClick={handleSignOut}>
+                                <ListItemIcon>
+                                    <LogoutIcon fontSize="small"/>
+                                </ListItemIcon>
+                                <ListItemText>Sign Out</ListItemText>
+                            </MenuItem>
                         </Menu>
                     </div>
                 ) : <AuthButtons/>}
