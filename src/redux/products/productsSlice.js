@@ -1,8 +1,9 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {fetchProducts} from "./productsFetch";
+import {fetchAllProducts, fetchProduct} from "./productsFetch";
 
 const initialState = {
     products: [],
+    product: {},
     status: null,
     error: null,
 }
@@ -12,18 +13,30 @@ const productsSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers(builder) {
-        builder.addCase(fetchProducts.pending, (state) => {
+        builder.addCase(fetchAllProducts.pending, (state) => {
             state.status = "pending"
             state.error = null
         })
-        builder.addCase(fetchProducts.fulfilled, (state, action) => {
+        builder.addCase(fetchAllProducts.fulfilled, (state, action) => {
             state.status = "fulfilled"
             state.products = action.payload.products
         })
-
-        builder.addCase(fetchProducts.rejected, (state) => {
+        builder.addCase(fetchAllProducts.rejected, (state) => {
             state.status = "rejected"
             state.products = []
+        })
+
+        builder.addCase(fetchProduct.pending, (state) => {
+            state.status = "pending"
+            state.error = null
+        })
+        builder.addCase(fetchProduct.fulfilled, (state, action) => {
+            state.status = "fulfilled"
+            state.product = action.payload
+        })
+        builder.addCase(fetchProduct.rejected, (state) => {
+            state.status = "rejected"
+            state.product = {}
         })
     }
 })

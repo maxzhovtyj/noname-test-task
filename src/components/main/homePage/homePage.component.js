@@ -14,7 +14,6 @@ function HomePageComponent() {
 
     return (
         <div>
-            <h2>Home page</h2>
             <CategoriesList status={categoriesStatus} categories={categories}/>
         </div>
     );

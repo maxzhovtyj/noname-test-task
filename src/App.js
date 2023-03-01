@@ -9,15 +9,15 @@ import {SnackbarProvider} from "./context/SnackbarContext";
 function App() {
     return (
         <AuthProvider>
-            <SnackbarProvider>
-                <Router>
+            <Router>
+                <SnackbarProvider>
                     <div className="App">
                         <HeaderComponent/>
                         <MainComponent/>
                         <FooterComponent/>
                     </div>
-                </Router>
-            </SnackbarProvider>
+                </SnackbarProvider>
+            </Router>
         </AuthProvider>
     );
 }

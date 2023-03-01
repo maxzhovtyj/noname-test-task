@@ -2,14 +2,16 @@ import React from 'react';
 import CircularIndeterminate from "../../../../UI/circularProgress";
 import ProductItem from "./productItem";
 
-function ProductsList({status, products}) {
+import classes from "./products.module.css"
+
+function ProductsList({status, products, handleBuy}) {
     if (status === "pending") {
         return <CircularIndeterminate/>
     }
 
     return (
-        <div>
-            {products.map(item => <ProductItem key={item.id} product={item}/>)}
+        <div className={classes.productsList}>
+            {products.map(item => <ProductItem key={item.id} product={item} handleBuy={handleBuy}/>)}
         </div>
     );
 }
