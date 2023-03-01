@@ -53,6 +53,7 @@ function SignInComponent() {
 
             <div className={classes.googleSignInBtn}>
                 <GoogleButton onClick={handleSignInGoogle}/>
+                <small>Does not work on production</small>
             </div>
         </div>
     );
