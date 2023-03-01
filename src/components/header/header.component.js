@@ -43,7 +43,7 @@ function HeaderComponent() {
         <AppBar position="static">
             <Toolbar className={classes.headerContainer}>
                 <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
-                    <h2><NavLink to={"/"}>NONAME DIGITAL</NavLink></h2>
+                    <NavLink to={"/"}>NONAME DIGITAL</NavLink>
                 </Typography>
                 {currentUser ? (
                     <div>
